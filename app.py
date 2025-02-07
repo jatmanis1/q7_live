@@ -15,9 +15,11 @@ from functools import wraps
 
 
 
-
+db_url='postgresql://postgres:iFzizrLibruSrppvlzCXmVwLHcPBeEgP@autorack.proxy.rlwy.net:18775/railway'
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SECRET_KEY'] = 'qwertwq'
 
 db = SQLAlchemy(app)
@@ -906,7 +908,7 @@ def chart3():
 
 
     
-    
+
 
 @app.route('/chart4')
 @login_required
