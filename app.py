@@ -905,6 +905,8 @@ def chart3():
     return send_file(img, mimetype='image/png')
 
 
+    
+    
 
 @app.route('/chart4')
 @login_required
