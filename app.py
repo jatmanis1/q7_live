@@ -52,13 +52,13 @@ class User(db.Model, UserMixin):
         self.u_email = u_email
         self.u_name = u_name
         self.u_username = u_username
-        self.u_pw = generate_password_hash(u_pw)
+        self.u_pw = u_pw
         self.u_is_admin = u_is_admin
         
         
 
     def check_password(self, password):
-        return check_password_hash(self.u_pw, password)
+        return (self.u_pw == password)
     
     def __repr__(self):
         return f"User('{self.u_email}', '{self.u_username}', '{self.u_name}')"
