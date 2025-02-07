@@ -8,8 +8,8 @@ from flask_login import UserMixin
 import datetime
 from datetime import timedelta
 import json
-import matplotlib.pyplot as plt
-from io import BytesIO
+# import matplotlib.pyplot as plt
+# from io import BytesIO
 from functools import wraps
 
 
@@ -774,7 +774,7 @@ def delete_question(id):
 
 
 
-
+'''
 
 def chart():
     quiz_list= [i.quiz for i in Score.query.filter_by(user = current_user.id).all()]
@@ -937,7 +937,7 @@ def chart4():
     fig.savefig(img, format='png', bbox_inches='tight')
     img.seek(0)
 
-    return send_file(img, mimetype='image/png')
+    return send_file(img, mimetype='image/png')'''
 
 def data():
     data = db.session.query( Score.quiz,     
