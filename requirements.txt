@@ -3,4 +3,5 @@ Flask-Login==0.6.2
 Werkzeug==2.2.3
 Flask-SQLAlchemy==2.5.1
 Flask-Migrate==3.1.0
-matplotlib == 3.9.2
+matplotlib==3.9.2
+SQLAlchemy>=1.3
