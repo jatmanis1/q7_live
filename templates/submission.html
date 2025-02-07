@@ -1,0 +1,49 @@
+{% extends "quiz_common.html" %}
+{% block content %}
+
+        
+
+    
+    <div class="container1">
+        <div class="main">
+            {% for question in questions %}
+                <div class="question">
+                    <h3>{{ loop.index }}. {{ question.0.question}}</h3>
+                    <div class="options">
+                        <label {% if question.0.correct ==1 %} style="color: green;" {% endif %} 
+                            {% if question.1 == 1 %} style="color: red;" {% endif %}>
+                            <input type="radio" {% if question.1 == 1 %} checked   {% endif %} disabled 
+                            name="answer_{{ question.0.id }}" value="1"> {{ question.0.option1 }}
+                        </label>
+                        <label {% if question.0.correct ==2 %} style="color: green;" {% endif %} 
+                            {% if question.1 == 2 %} style="color: red;" {% endif %}>
+                            <input type="radio" {% if question.1 == 2 %} checked   {% endif %} disabled 
+                            name="answer_{{ question.0.id }}" value="2"> {{ question.0.option2 }}
+                        </label>
+                        <label {% if question.0.correct ==3 %} style="color: green;" {% endif %} 
+                            {% if question.1 == 3 %} style="color: red;" {% endif %}>
+                            <input type="radio" {% if question.1 == 3 %} checked   {% endif %} disabled 
+                            name="answer_{{ question.0.id }}" value="3"> {{ question.0.option3 }}
+                        </label>
+                        <label {% if question.0.correct ==4 %} style="color: green;" {% endif %} 
+                            {% if question.1 == 4 %} style="color: red;" {% endif %}>
+                            <input type="radio" {% if question.1 == 4 %} checked   {% endif %} disabled 
+                            name="answer_{{ question.0.id }}" value="4"> {{ question.0.option4 }}
+                        </label>
+                    </div><br>
+                    <small {% if question.0.correct ==question.1 %} 
+                    style="color: green;" >Score: {{question.0.marks}}</small>
+                {% else %} 
+                    style="color: red;" >Score: 0</small>
+                {% endif %}        
+                </div>
+               
+            {% endfor %}
+        </div>
+        <div class="sidebar">
+            <h3>Review Summary</h3>
+            <h4> Your Score: {{score.0}} / {{score.1}}</h4>
+            <h4>Total Questions: {{ questions | count }}</h4>
+        </div>
+    </div>
+{% endblock  %}

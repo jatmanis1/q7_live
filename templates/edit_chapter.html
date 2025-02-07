@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Edit Chapter</h1>
+
+<div class="container">
+    <form class="form1" action="{{ url_for('edit_chapter', id=chapter.id) }}" method="POST">
+        
+        <label for="name">Chapter Name:</label>
+        <input type="text" id="name" name="name" value="{{ chapter.name }}" required>
+
+        <label for="desc">Description:</label>
+        <input type="text" id="desc" name="desc" value="{{ chapter.desc }}">
+
+        <label for="subject">Select a Subject:</label>
+        <select id="subject" name="subject">
+            {% for subject in subjects %}
+                <option value="{{ subject.id }}" {% if chapter.subject == subject.id %} selected {% endif %}>
+                    {{ subject.name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Save Chapter</button>
+
+    </form>
+</div>
+
+{% endblock %}

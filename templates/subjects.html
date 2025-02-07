@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="fw-bold">Subjects</h1>
+        <button class="btn btn-outline-primary" onclick="window.location.href='/add_subject'">
+            + Add Subject
+        </button>
+    </div>
+    <div style="display: flex; justify-content: flex-end;" class="d-flex ml-auto">
+        <form action="{{ url_for('subjects') }}"" method="GET">
+                <input type="text" class="form-control" name="query" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2">
+                <button class="btn btn-outline-secondary" type="submit" id="basic-addon2">Search</button>
+        </form>
+    </div>
+    <!-- Responsive Table -->
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subjects %}
+                <tr>
+                    <td>{{ subject.id }}</td>
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.desc }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_subject', id=subject.id) }}" class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('delete_subject', id=subject.id) }}" class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

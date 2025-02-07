@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<h1>Add a quiz</h1>
+<div class="container">
+    <form class="form1" method="POST" action="{{ url_for('add_question') }}">
+
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" required><br><br>
+
+          
+        <label for="option1"> option1:</label>
+        <input type="text" id="option1" name="option1" required><br><br>  
+
+        <label for="option2"> option2:</label>
+        <input type="text" id="option2" name="option2" required><br><br>  
+
+        <label for="option3"> option3:</label>
+        <input type="text" id="option3" name="option3" required><br><br>  
+
+        <label for="option4"> option4:</label>  
+        <input type="text" id="option4" name="option4" required><br><br>  
+
+        <label for="correct"> correct:</label>
+        <input type="number"  min="1" max="4" id="correct" name="correct" required><br><br>
+
+        <label for="marks"> marks:</label>
+        <input type="number" id="marks" name="marks" min="0", max="100" required><br><br>
+          
+
+        <label for="quiz">Select a quiz:</label>
+            <select name="quiz" id="quiz">
+                {% for quiz in quizs %}
+                    <option value="{{ quiz.id }}" >{{ quiz.name}}</option>
+                {% endfor %}
+            </select>
+
+    
+            
+        <button type="submit" >+ quiz</button>
+    </form>
+</div>
+    {% endblock %}
+
+
+
+    
