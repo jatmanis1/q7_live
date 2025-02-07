@@ -18,6 +18,8 @@ matplotlib==3.9.2
 numpy==2.2.2
 packaging==24.2
 pillow==11.1.0
+psycopg2-binary>=2.9
+
 pyparsing==3.2.1
 python-dateutil==2.9.0.post0
 six==1.17.0
